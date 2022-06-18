@@ -1,0 +1,53 @@
+    .loginRegister{
+        background-color: #8F21FF;
+    }
+    .form-part{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        position: relative;
+
+    }
+    label{
+        /* margin-top: -10px; */
+        position: absolute;
+        top: -10px;
+        margin-left: 35px;
+        width: fit-content;
+        padding-left: 3px;
+        padding-right:3px;
+        background-color: white;
+    }
+    .form-input{
+        margin-top: 3;
+        border-radius: 25px;
+        padding: 10px;
+        width: 100%;
+        padding-left: 10px;
+        border: 1px solid gray;
+    
+    }
+    form{
+        padding-top: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        
+    }
+    .signup{
+        margin-top: 20px;
+        width: 100%;
+        border-radius: 25px;
+    }
+    .signin{
+        margin-left: 200px;
+        margin-top: 30px;
+        font-size:18px;
+        font-weight:400;   
+        color: blue;
+        text-decoration: none;
+    }
+.describer{
+    position: absolute;
+    top: -10px;
+    left:210px;
+}
