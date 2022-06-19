@@ -15,27 +15,31 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" ><path fill="#0d6efd" fill-opacity="1" d="M0,32L120,69.3C240,107,480,181,720,213.3C960,245,1200,235,1320,229.3L1440,224L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
             
             </path></svg>
-            <form method="POST" name="createUser" style="height:80%;" class="col-md-12" action="<?php echo base_url()?>index.php/User/create">
+            <form method="POST" name="createUser" style="height:80%;" class="col-md-12" action="<?php echo base_url()?>index.php/User/createUser ">
             <div class="form-part">
                 <Label>Name</Label>
-                <input type="text" name="email" class="form-input" />
+                <input type="text" name="name" class="form-input" />
+                <?php echo form_error('name');?>
+
             </div>
             <div class="form-part">
                 <Label>Email</Label>
                 <input type="email" name="email" class="form-input" />
+                <?php echo form_error('email');?>
+
             </div>
             <div class="form-part">
                 <Label>Password</Label>
                 <input type="password" name="password" class="form-input" />
+                <?php echo form_error('password');?>
+
             </div>
             <div class="form-part">
                 <Label>Confirm Password</Label>
-                <input type="cpassword" name="password" class="form-input" />
+                <input type="password" name="cpassword" class="form-input" />
             </div>
             <button class="btn btn-primary bg-primary signup">Signup</button>
-            <div class="form-part">
-                <a class="signin">Signin</a>
-            </div>
+            <a class="signin btn bg-dark text-white" href="<?php echo base_url()?>index.php/User/login">Signin</a>
             </form>
         </div>
         </div>
