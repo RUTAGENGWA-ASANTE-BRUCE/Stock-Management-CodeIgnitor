@@ -4,6 +4,7 @@
             $this->db->insert("users",$formArray);
             $this->db->where($formArray);
             return $user=$this->db->get('users')->row_array();
+            
         }
         function login($formArray){
             $this->db->where('email',$formArray['email']);
