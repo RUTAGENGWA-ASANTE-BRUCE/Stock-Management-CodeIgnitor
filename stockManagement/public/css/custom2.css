@@ -34,16 +34,22 @@
         
     }
     .signup{
-        margin-top: 20px;
-        width: 100%;
-        border-radius: 25px;
-    }
-    .signin{
-        margin-left: 200px;
-        margin-top: 30px;
         font-size:18px;
         font-weight:400;   
-        color: blue;
+        border-radius: 25px;
+        width: 100%;
+
+        text-decoration: none;
+    
+    }
+    .signin{
+        font-size:18px;
+        font-weight:400;   
+        border-radius: 25px;
+        margin-top: 16px;
+        width: 100%;
+
+        
         text-decoration: none;
     }
 .describer{
