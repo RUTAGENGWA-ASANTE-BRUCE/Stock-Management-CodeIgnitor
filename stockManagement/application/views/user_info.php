@@ -53,7 +53,7 @@
             </div>
             <div class="">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white  ms-4">
+                <a class="btn bg-white  ms-4" href="<?php echo base_url().'index.php/Stock/productSuppliers/'.$user['user_id'];?>">
 
                     <i class="fa-solid fa-hand-holding-dollar"></i>
                     Suppliers
