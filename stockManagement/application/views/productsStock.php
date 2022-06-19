@@ -105,7 +105,43 @@
             }
             ?>
 
-            <div class="d-flex"></div>
+            <div class="d-flex justify-content-between">
+                <h3>Products Stock</h3>
+                <div class="col-2 text-right"><a href="<?php echo base_url().'index.php/User/create';?>" class="btn btn-primary">Create
+                    <i class="fa-solid fa-plus"></i>
+                </a></div>
+                <div class="d-flex flex-row  p-2 border w-2000" style="border-radius:25px;">
+                <i class="fa-solid fa-magnifying-glass fs-5 mt-1"></i>
+                <input style="border:none;outline:none;" type="text" name="search" />
+                </div>
+            </div>
+            <table class="table mt-3">
+  <thead class="bg-dark text-white">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Price</th>
+      <th scope="col">Available Color</th>
+      <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td></td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+    </tr>
+   
+  </tbody>
+</table>
+
     </div>
       
 </body>
