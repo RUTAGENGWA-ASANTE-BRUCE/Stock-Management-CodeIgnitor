@@ -38,7 +38,7 @@
                 <a class="btn btn-primary float-start ms-4">
                     
                     <i class="fa-solid fa-truck-ramp-box"></i>
-                    Inventory
+                    Products
                 </a>
             </div>
             <div class="">
@@ -46,7 +46,7 @@
                 <a class="btn bg-white  ms-4 mt-2">
                     
                     <i class="fa-solid fa-cart-flatbed"></i>
-                    Products
+                    Prices
                 </a>
             </div>
             <div class="">
@@ -54,7 +54,7 @@
                 <a class="btn bg-white  ms-4">
                     
                     <i class="fa-solid fa-hand-holding-dollar"></i>
-                    Prices
+                    Suppliers
                 </a>
             </div>
             <div class="mt-2">
@@ -62,7 +62,7 @@
                 <a class="btn  float-start ms-4">
                     
                     <i class="fa-solid fa-truck-field"></i>
-                    Suppliers
+                    Inventory
                 </a>
             </div>
             <div class="mt-2">
@@ -104,6 +104,8 @@
                 <?php
             }
             ?>
+
+            <div class="d-flex"></div>
     </div>
       
 </body>
