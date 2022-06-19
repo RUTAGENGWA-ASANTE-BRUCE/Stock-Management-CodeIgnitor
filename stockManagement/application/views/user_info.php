@@ -123,6 +123,10 @@
                 <p class="mt-4"></p>User Id: &nbsp; <?php echo $user['user_id'] ?></p>
                 <p class="mt-4"></p>User name: &nbsp; <?php echo $user['name'] ?></p>
                 <p class="mt-4">Email: &nbsp; <?php echo $user['email'] ?></p>
+                <p class="mt-4">Gender: &nbsp; <?php echo $user['gender'] ?></p>
+                <p class="mt-4">Nationality: &nbsp; <?php echo $user['nationality'] ?></p>
+                <p class="mt-4">profilePicture: &nbsp; <img src="<?php echo base_url().'/public/images/'.$user['profilePicture'] ?>" style="width:100px;height:100px;border-radius:50%;"/></p>
+                
 
     </div>
 
