@@ -52,7 +52,7 @@
             </div>
             <div class="mt-2">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn  float-start ms-4">
+                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url().'index.php/Stock/inventories/'.$user['user_id'];?>">
                     
                     <i class="fa-solid fa-truck-field"></i>
                     Inventory
@@ -117,21 +117,52 @@
       <th scope="col">Category</th>
       <th scope="col">Price</th>
       <th scope="col">Available Color</th>
+      <th scope="col">Supplier</th>
       <th scope="col">Action</th>
 
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td></td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-   
+  <?php if(!empty($products)){
+                            foreach($products as $product){?>
+                                    <tr>
+                                        <td><?php echo $product['product_id'];?></td>
+                                        <td><img src="<?php echo base_url().'/public/images/'.$product['productImage'];?>" style="width:40px; height:40px; border-radius:10px;"/></td>
+                                        <td><?php echo $product['name'];?></td>
+                                        <td><?php echo $product['category'];?></td>
+                                        <td><?php echo $product['price'];?></td>
+                                        <td>
+                                            <div class="d-flex mt-1">
+
+                                                <?php $colors=explode(',',$product['colors']);
+                                            foreach($colors as $color){
+                                                ?>
+                                                <div style="background-color:<?php echo $color;?>;width:20px;height: 20px;border-radius:50%;margin-left: 3px;"></div>
+                                                <?php
+                                            }
+                                            ?>
+                                            </div>
+                                        </td>
+                                        <td><?php echo $product['supplierName'];?></td>
+                                        <td>
+                                         <div class="d-flex">
+                                            <a href="<?php echo base_url().'index.php/User/edit/'.$product['product_id']?>" class="btn btn-primary">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            Edit</a>
+                                      
+                                            <a href="<?php echo base_url().'index.php/User/delete/'.$product['product_id']?>" class="btn btn-primary btn-danger ms-2">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            Delete</a>
+                                         </div>
+                                        </td>
+                                    </tr>
+                                <?php
+                            }
+                    }else{?>
+                    <td colspan="5">No products found</td>
+                    <?php
+                    }
+                    ?>
   </tbody>
 </table>
 
