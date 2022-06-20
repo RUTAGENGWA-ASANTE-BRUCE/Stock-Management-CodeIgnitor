@@ -43,14 +43,7 @@
                     Products
                 </a>
             </div>
-            <div class="">
-                <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white  ms-4 mt-2">
-
-                    <i class="fa-solid fa-cart-flatbed"></i>
-                    Prices
-                </a>
-            </div>
+         
             <div class="">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
                 <a class="btn bg-white  ms-4" href="<?php echo base_url().'index.php/Stock/productSuppliers/'.$user['user_id'];?>">
