@@ -52,7 +52,7 @@
             </div>
             <div class="mt-2">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn  float-start ms-4">
+                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url().'index.php/Stock/inventories/'.$user['user_id'];?>">
                     
                     <i class="fa-solid fa-truck-field"></i>
                     Inventory
@@ -131,7 +131,8 @@
                                         <td><?php echo $supplier['gender'];?></td>
                                         <td><?php echo $supplier['telephone'];?></td>
                                         <td><?php echo $supplier['location'];?></td>
-                                        <td class="d-flex">
+                                        <td>
+                                        <div class="d-flex">
                                             <a href="<?php echo base_url().'index.php/User/edit/'.$supplier['user_id']?>" class="btn btn-primary">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             Edit</a>
@@ -139,6 +140,7 @@
                                             <a href="<?php echo base_url().'index.php/User/delete/'.$supplier['user_id']?>" class="btn btn-primary btn-danger ms-2">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             Delete</a>
+                                        </div>
                                         </td>
                                     </tr>
                                 <?php
