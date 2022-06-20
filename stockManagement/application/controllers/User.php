@@ -32,7 +32,7 @@ class User extends CI_Controller
                 $user = $this->User_model->create($formArray);
                 $this->session->set_flashdata('success', 'User Registered successfully');
                 $data['user'] = $user;
-                redirect(base_url() . "index.php/Stock/stockProducts/" . $user['user_id']);
+                redirect(base_url() . "Stock/stockProducts/" . $user['user_id']);
             
 
 
@@ -57,7 +57,7 @@ class User extends CI_Controller
             } else {
                 $data['user'] = $user;
                 $this->session->set_flashdata('success', 'You logged in successfully');
-                redirect(base_url() . "index.php/Stock/stockProducts/" . $user['user_id']);
+                redirect(base_url() . "Stock/stockProducts/" . $user['user_id']);
             }
         }
     }
@@ -89,7 +89,7 @@ class User extends CI_Controller
             $this->User_model->updateUser($user_id, $formArray);
             $this->session->set_flashdata('success', "Profile updated successfully!");
             $this->session->set_flashdata('userInfo', $user);
-            redirect(base_url() . "index.php/User/userInfo/" . $user_id);
+            redirect(base_url() . "User/userInfo/" . $user_id);
         }
     }
 }
