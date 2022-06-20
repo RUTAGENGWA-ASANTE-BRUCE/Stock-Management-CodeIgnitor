@@ -14,12 +14,12 @@
             $this->db->where('user_id',$user_id);
             $this->db->update('suppliers',$formArray);
         }
-        function getUser($user_id){
+        function getSupplier($user_id){
             $this->db->where('user_id',$user_id);
             return $user=$this->db->get('suppliers')->row_array();//select * from suppliers where user_id=?;
            }
            function all(){
-            return $users=$this->db->get('suppliers')->result_array();//Select * from users'
+            return $suppliers=$this->db->get('suppliers')->result_array();//Select * from users'
         }
     }
 ?>
