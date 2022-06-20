@@ -37,7 +37,7 @@
 
             <div class="mt-4 ">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white float-start ms-4" href="<?php echo base_url().'index.php/Stock/stockProducts/'.$user['user_id'];?>">
+                <a class="btn bg-white float-start ms-4" href="<?php echo base_url().'Stock/stockProducts/'.$user['user_id'];?>">
 
                     <i class="fa-solid fa-truck-ramp-box"></i>
                     Products
@@ -46,7 +46,7 @@
          
             <div class="">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white  ms-4" href="<?php echo base_url().'index.php/Stock/productSuppliers/'.$user['user_id'];?>">
+                <a class="btn bg-white  ms-4" href="<?php echo base_url().'Stock/productSuppliers/'.$user['user_id'];?>">
 
                     <i class="fa-solid fa-hand-holding-dollar"></i>
                     Suppliers
@@ -54,7 +54,7 @@
             </div>
             <div class="mt-2">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url().'index.php/Stock/inventories/'.$user['user_id'];?>">
+                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url().'Stock/inventories/'.$user['user_id'];?>">
                     
                     <i class="fa-solid fa-truck-field"></i>
                     Inventory
@@ -71,7 +71,7 @@
         </div>
         <div class="mt-2">
             <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-            <a class="btn bg-white  ms-4" href="<?php echo base_url().'index.php/User/login';?>">
+            <a class="btn bg-white  ms-4" href="<?php echo base_url().'User/login';?>">
 
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 Log out
@@ -107,7 +107,7 @@
                     <div class="col-10">
                         <h3>User Profile</h3>
                     </div>
-                    <div class="col-2 text-right"> <a href="<?php echo base_url().'index.php/User/edit/'.$user['user_id']?>" class="btn btn-primary">
+                    <div class="col-2 text-right"> <a href="<?php echo base_url().'User/edit/'.$user['user_id']?>" class="btn btn-primary">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             Edit</a></div>
                 </div>
