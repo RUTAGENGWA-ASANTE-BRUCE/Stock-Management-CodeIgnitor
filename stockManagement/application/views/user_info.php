@@ -54,8 +54,8 @@
             </div>
             <div class="mt-2">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn  float-start ms-4">
-
+                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url().'index.php/Stock/inventories/'.$user['user_id'];?>">
+                    
                     <i class="fa-solid fa-truck-field"></i>
                     Inventory
                 </a>
@@ -113,12 +113,12 @@
                 </div>
                 <hr/>
             </div>
-                <p class="mt-4"></p>User Id: &nbsp; <?php echo $user['user_id'] ?></p>
-                <p class="mt-4"></p>User name: &nbsp; <?php echo $user['name'] ?></p>
-                <p class="mt-4">Email: &nbsp; <?php echo $user['email'] ?></p>
-                <p class="mt-4">Gender: &nbsp; <?php echo $user['gender'] ?></p>
-                <p class="mt-4">Nationality: &nbsp; <?php echo $user['nationality'] ?></p>
-                <p class="mt-4">profilePicture: &nbsp; <img src="<?php echo base_url().'/public/images/'.$user['profilePicture'] ?>" style="width:100px;height:100px;border-radius:50%;"/></p>
+                <div class="mt-4 d-flex"><p class="col-2">User Id: </p> <?php echo $user['user_id'] ?></div>
+                <div class="mt-4 d-flex"><p class="col-2">User name: </p> <?php echo $user['name'] ?></div>
+                <div class="mt-4 d-flex"><p class="col-2">Email: </p> <?php echo $user['email'] ?></div>
+                <div class="mt-4 d-flex"><p class="col-2">Gender: </p> <?php echo $user['gender'] ?></div>
+                <div class="mt-4 d-flex"><p class="col-2">Nationality: </p> <?php echo $user['nationality'] ?></div>
+                <div class="mt-4 d-flex"><p class="col-2">profilePicture: </p> <img src="<?php echo base_url().'/public/images/'.$user['profilePicture'] ?>" style="width:100px;height:100px;border-radius:50%;"/></div>
                 
 
     </div>
