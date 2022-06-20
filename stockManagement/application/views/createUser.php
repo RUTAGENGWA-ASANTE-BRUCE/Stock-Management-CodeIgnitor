@@ -78,7 +78,7 @@
 
             </path>
         </svg>
-        <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url() ?>index.php/User/createUser ">
+        <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url() ?>User/createUser ">
             <div class="form-part">
                 <Label>User Name</Label>
                 <input required type="text" minlength="4" maxlength="60" name="name" class="form-input" />
@@ -125,7 +125,7 @@
             <div class="form-part d-flex flex-column">
                 <div class="d-flex">
 
-                    <p class="col-5">Prodile Picture</p>
+                    <p class="col-5">Profile Picture</p>
                     <input required type="file" name="profilePicture">
                 </div>
               <p class="fs-6 text-danger">  <?php echo form_error('email'); ?></p>
@@ -141,7 +141,7 @@
                 <input required type="password" name="cpassword" class="form-input" />
             </div>
             <button class="btn btn-primary bg-primary signup">Signup</button>
-            <a class="signin btn bg-dark text-white" href="<?php echo base_url() ?>index.php/User/login">Signin</a>
+            <a class="signin btn bg-dark text-white" href="<?php echo base_url() ?>User/login">Signin</a>
         </form>
     </div>
     </div>
