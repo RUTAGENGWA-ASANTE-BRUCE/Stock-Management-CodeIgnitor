@@ -10,16 +10,20 @@
             return $user=$this->db->get('suppliers')->row_array();
         }
     
-        function updateUser($user_id,$formArray){
-            $this->db->where('user_id',$user_id);
+        function updateSupplier($supplier_id,$formArray){
+            $this->db->where('user_id',$supplier_id);
             $this->db->update('suppliers',$formArray);
         }
         function getSupplier($user_id){
             $this->db->where('user_id',$user_id);
-            return $user=$this->db->get('suppliers')->row_array();//select * from suppliers where user_id=?;
+            return $supplier=$this->db->get('suppliers')->row_array();//select * from suppliers where user_id=?;
            }
            function all(){
             return $suppliers=$this->db->get('suppliers')->result_array();//Select * from users'
+        }
+        function delete($user_id){
+            $this->db->where('user_id',$user_id);
+            $this->db->delete('suppliers');
         }
     }
 ?>
