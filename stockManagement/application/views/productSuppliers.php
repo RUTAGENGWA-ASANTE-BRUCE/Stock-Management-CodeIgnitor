@@ -100,7 +100,7 @@
 
             <div class="d-flex justify-content-between">
                 <h3>Products Suppliers</h3>
-                <div class="col-2 text-right"><a href="<?php echo base_url().'index.php/Stock/createProduct/'.$user['user_id'];?>" class="btn btn-primary">Create
+                <div class="col-2 text-right"><a href="<?php echo base_url().'index.php/Stock/createSupplier/'.$user['user_id'];?>" class="btn btn-primary">Add supplier
                     <i class="fa-solid fa-plus"></i>
                 </a></div>
                 <div class="d-flex flex-row  p-2 border w-2000" style="border-radius:25px;">
@@ -133,13 +133,19 @@
                                         <td><?php echo $supplier['location'];?></td>
                                         <td>
                                         <div class="d-flex">
-                                            <a href="<?php echo base_url().'index.php/User/edit/'.$supplier['user_id']?>" class="btn btn-primary">
+                                            <form method="post" action="<?php echo base_url().'index.php/Stock/editSupplier/'.$supplier['user_id'];?>"> <button class="btn btn-primary">
                                                 <i class="fa-solid fa-pen-to-square"></i>
-                                            Edit</a>
-                                      
-                                            <a href="<?php echo base_url().'index.php/User/delete/'.$supplier['user_id']?>" class="btn btn-primary btn-danger ms-2">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            Delete</a>
+                                            Edit
+                                            </button>
+                                            <input type="hidden" name="user_id" value="<?php echo $user['user_id'];?>">
+                                        </form>
+                                        <form  action="<?php echo base_url().'index.php/Stock/deleteSupplier/'.$supplier['user_id']?>" method="post">
+                                            <button class="btn btn-danger ms-2">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                    Delete
+                                                </button>
+                                                <input type="hidden" name="user_id" value="<?php echo $user['user_id'];?>">
+                                            </form>
                                         </div>
                                         </td>
                                     </tr>
