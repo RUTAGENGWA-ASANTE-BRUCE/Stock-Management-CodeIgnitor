@@ -85,7 +85,7 @@
 
             </path>
         </svg>
-        <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url() .'index.php/Stock/createInventory/'.$user['user_id'];?>">
+        <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url() .'Stock/createInventory/'.$user['user_id'];?>">
         <div class="form-part d-flex flex-column">
                 <div class="d-flex">
 
@@ -133,7 +133,7 @@
             </div>
            
             <button class="btn btn-primary bg-primary signup">Create Inventory</button>
-            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'index.php/Stock/Inventories/'.$user['user_id']; ?>">Cancel</a>
+            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'Stock/Inventories/'.$user['user_id']; ?>">Cancel</a>
         </form>
     </div>
     </div>
