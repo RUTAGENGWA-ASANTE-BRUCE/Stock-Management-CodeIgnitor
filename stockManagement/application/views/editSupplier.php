@@ -78,7 +78,7 @@
 
             </path>
         </svg>
-        <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url().'index.php/Stock/editSupplier/'.$supplier['user_id'];?>">
+        <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url().'Stock/editSupplier/'.$supplier['user_id'];?>">
             
             <div class="form-part">
                 <Label class="">Supplier Name</Label>
@@ -121,7 +121,7 @@
 
             </div>
             <button class="btn btn-primary bg-primary signup">Update Supplier</button>
-            <a class="signin btn bg-dark text-white" href="<?php echo base_url().'index.php/Stock/productSuppliers/'.$user_id ; ?>">Cancel</a>
+            <a class="signin btn bg-dark text-white" href="<?php echo base_url().'Stock/productSuppliers/'.$user_id ; ?>">Cancel</a>
         </form>
     </div>
     </div>
