@@ -85,17 +85,17 @@
 
             </path>
         </svg>
-        <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url() ?>index.php/User/createUser ">
+        <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url() .'index.php/Stock/createProduct/'.$user['user_id'];?>">
             <div class="form-part">
-                <Label>Prduct Name</Label>
-                <input required type="text" minlength="4" maxlength="60" name="name" class="form-input" />
+                <Label>Product Name</Label>
+                <input required type="text" maxlength="60" name="name" class="form-input" />
                 <p class="fs-6 text-danger"> <?php echo form_error('name'); ?></p>
 
             </div>
             <div class="form-part">
                 <Label>Category</Label>
-                <input required type="text" name="category " class="form-input" />
-                <p class="fs-6 text-danger"> <?php echo form_error('email'); ?></p>
+                <input required type="text" name="category" class="form-input" />
+                <p class="fs-6 text-danger"> <?php echo form_error('category'); ?></p>
 
             </div>
             <div class="form-part">
@@ -107,22 +107,22 @@
                 <div class="d-flex justify-content-between">
                     <div class="d-flex">
 
-                        <input type="checkbox" name="color" class="me-2 mt-2" value="red" checked> Red
+                        <input type="checkbox" name="color[]" class="me-2 mt-2" value="red" checked> Red
                     </div>
                     <div class="d-flex">
 
-                        <input type="checkbox" name="color" class="me-2 mt-2" value="black" checked> Black
+                        <input type="checkbox" name="color[]" class="me-2 mt-2" value="black" checked> Black
                     </div>
                     <div class="d-flex">
 
-                        <input type="checkbox" name="color" class="me-2 mt-2" value="green"> Green
+                        <input type="checkbox" name="color[]" class="me-2 mt-2" value="green"> Green
                     </div>
                     <div class="d-flex">
-                        <input type="checkbox" name="color" class="me-2 mt-2" value="Yellow"> Yellow
+                        <input type="checkbox" name="color[]" class="me-2 mt-2" value="Yellow"> Yellow
 
                     </div>
                 </div>
-                <p class="fs-6 text-danger"> <?php echo form_error('email'); ?></p>
+                <p class="fs-6 text-danger"> <?php echo form_error('color'); ?></p>
             </div>
             <div class="form-part d-flex flex-column">
                 <div class="d-flex">
@@ -133,32 +133,32 @@
                         if(!empty($suppliers)){
                             foreach($suppliers as $supplier){
                                 ?>
-                                <option value="<?php echo $supplier['name'];?>"><?php echo $supplier['name'];?></option>
+                                <option value="<?php echo $supplier['name'].",".$supplier['user_id'];?>"><?php echo $supplier['name'];?></option>
                                 <?php
                             }
                         }
                       ?>
                     </select>
                 </div>
-                <p class="fs-6 text-danger"> <?php echo form_error('email'); ?></p>
+                <p class="fs-6 text-danger"> <?php echo form_error('supplier'); ?></p>
             </div>
             <div class="form-part d-flex flex-column">
                 <div class="d-flex">
 
                     <p class="col-5">Product Picture</p>
-                    <input required type="file" name="profilePicture">
+                    <input required type="file" name="productPicture">
                 </div>
-                <p class="fs-6 text-danger"> <?php echo form_error('email'); ?></p>
+                <p class="fs-6 text-danger"> <?php echo form_error('productPicture'); ?></p>
             </div>
             <div class="form-part">
                 <Label>Brand</Label>
                 <input required type="text" name="brand" class="form-input" />
-                <p class="fs-6 text-danger"> <?php echo form_error('password'); ?></p>
+                <p class="fs-6 text-danger"> <?php echo form_error('brand'); ?></p>
 
             </div>
            
             <button class="btn btn-primary bg-primary signup">Register Product</button>
-            <a class="signin btn bg-dark text-white" href="<?php echo base_url() ?>index.php/User/login">Cancel</a>
+            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'index.php/Stock/stockProducts/'.$user['user_id']; ?>">Cancel</a>
         </form>
     </div>
     </div>
