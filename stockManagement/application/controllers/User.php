@@ -28,12 +28,12 @@ class User extends CI_Controller
             $this->upload->initialize($config);
             if ($this->upload->do_upload('profilePicture')) {
                 $formArray['profilePicture'] = $this->upload->data('file_name');
-            } else {
+            }
                 $user = $this->User_model->create($formArray);
                 $this->session->set_flashdata('success', 'User Registered successfully');
                 $data['user'] = $user;
                 redirect(base_url() . "index.php/Stock/stockProducts/" . $user['user_id']);
-            }
+            
 
 
             
