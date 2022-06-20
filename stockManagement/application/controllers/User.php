@@ -30,16 +30,13 @@ class User extends CI_Controller
                 $formArray['profilePicture'] = $this->upload->data('file_name');
             } else {
                 $user = $this->User_model->create($formArray);
-                $this->session->set_flashdata('success', $this->upload->display_errors());
+                $this->session->set_flashdata('success', 'User Registered successfully');
                 $data['user'] = $user;
                 redirect(base_url() . "index.php/Stock/stockProducts/" . $user['user_id']);
             }
 
 
-            $user = $this->User_model->create($formArray);
-            $this->session->set_flashdata('success', 'User Registered successfully');
-            $data['user'] = $user;
-            redirect(base_url() . "index.php/Stock/stockProducts/" . $user['user_id']);
+            
         }
     }
     function login()
