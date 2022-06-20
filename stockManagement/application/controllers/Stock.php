@@ -57,7 +57,7 @@ class Stock extends CI_Controller
 
                 $this->Product_model->create($formArray);
                 $this->session->set_flashdata('success', 'Product Registered successfully');
-                redirect(base_url() . "index.php/Stock/stockProducts/" . $user['user_id']);
+                redirect(base_url() . "Stock/stockProducts/" . $user['user_id']);
             
 
         
@@ -109,7 +109,7 @@ class Stock extends CI_Controller
 
                 $this->Product_model->updateProduct($product_id,$formArray);
                 $this->session->set_flashdata('success', 'Product Updated successfully');
-                redirect(base_url() . "index.php/Stock/stockProducts/" . $this->input->post('user_id'));
+                redirect(base_url() . "Stock/stockProducts/" . $this->input->post('user_id'));
                 $this->session->set_flashdata('productInfo', $product);
         }
     }
@@ -120,7 +120,7 @@ class Stock extends CI_Controller
         $this->load->model('User_model');
         $user= $this->User_model->getUser($user_id);
         $this->Product_model->delete($product_id);
-        redirect(base_url() . "index.php/Stock/stockProducts/". $user['user_id']);
+        redirect(base_url() . "Stock/stockProducts/". $user['user_id']);
     }
     function  productSuppliers($user_id)
     {
@@ -159,7 +159,7 @@ class Stock extends CI_Controller
 
             $this->Supplier_model->create($formArray);
             $this->session->set_flashdata('success', 'Supplier Registered successfully');
-            redirect(base_url() . "index.php/Stock/productSuppliers/" .$this->input->post('user_id'));
+            redirect(base_url() . "Stock/productSuppliers/" .$this->input->post('user_id'));
         }
     }
 
@@ -191,7 +191,7 @@ class Stock extends CI_Controller
 
             $this->Supplier_model->updateSupplier($supplier_id,$formArray);
             $this->session->set_flashdata('success', 'Supplier Updated successfully');
-            redirect(base_url() . "index.php/Stock/productSuppliers/" . $user['user_id']);
+            redirect(base_url() . "Stock/productSuppliers/" . $user['user_id']);
         }
     }
 
@@ -201,7 +201,7 @@ class Stock extends CI_Controller
         $this->load->model('User_model');
         $user= $this->User_model->getUser($user_id);
         $this->Supplier_model->delete($supplier_id);
-        redirect(base_url() . "index.php/Stock/productSuppliers/". $user['user_id']);
+        redirect(base_url() . "Stock/productSuppliers/". $user['user_id']);
     }
 
     function  Inventories($user_id)
@@ -250,7 +250,7 @@ class Stock extends CI_Controller
             $this->load->model('Inventory_model');
             $this->Inventory_model->create($formArray);
             $this->session->set_flashdata('success', 'Inventory Registered successfully');
-            redirect(base_url() . "index.php/Stock/Inventories/" . $user['user_id']);
+            redirect(base_url() . "Stock/Inventories/" . $user['user_id']);
         }
     }
 
@@ -289,7 +289,7 @@ class Stock extends CI_Controller
             $this->load->model('Inventory_model');
             $this->Inventory_model->updateInventory($inventory_id,$formArray);
             $this->session->set_flashdata('success', 'Inventory updated successfully');
-            redirect(base_url() . "index.php/Stock/Inventories/" . $user['user_id']);
+            redirect(base_url() . "Stock/Inventories/" . $user['user_id']);
         }
     }
 
@@ -299,6 +299,6 @@ class Stock extends CI_Controller
         $this->load->model('User_model');
         $user= $this->User_model->getUser($user_id);
         $this->Inventory_model->delete($inventory_id);
-        redirect(base_url() . "index.php/Stock/inventories/". $user['user_id']);
+        redirect(base_url() . "Stock/inventories/". $user['user_id']);
     }
 }
