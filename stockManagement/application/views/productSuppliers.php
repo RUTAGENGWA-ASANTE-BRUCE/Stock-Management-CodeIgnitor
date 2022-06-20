@@ -41,14 +41,7 @@
                     Products
                 </a>
             </div>
-            <div class="">
-                <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white  ms-4 mt-2">
-                    
-                    <i class="fa-solid fa-cart-flatbed"></i>
-                    Prices
-                </a>
-            </div>
+           
             <div class="">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-primary"></div>
                 <a class="btn btn-primary  ms-4">
@@ -107,7 +100,7 @@
 
             <div class="d-flex justify-content-between">
                 <h3>Products Suppliers</h3>
-                <div class="col-2 text-right"><a href="<?php echo base_url().'index.php/Stock/createSupplier/'.$user['user_id'];?>" class="btn btn-primary">Create
+                <div class="col-2 text-right"><a href="<?php echo base_url().'index.php/Stock/createProduct/'.$user['user_id'];?>" class="btn btn-primary">Create
                     <i class="fa-solid fa-plus"></i>
                 </a></div>
                 <div class="d-flex flex-row  p-2 border w-2000" style="border-radius:25px;">
@@ -119,25 +112,42 @@
   <thead class="bg-dark text-white">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Image</th>
-      <th scope="col">Product Name</th>
-      <th scope="col">Category</th>
-      <th scope="col">Price</th>
-      <th scope="col">Available Color</th>
+      <th scope="col">Supplier Name</th>
+      <th scope="col">Supplier Email</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Telephone</th>
+      <th scope="col">Location</th>
       <th scope="col">Action</th>
 
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td></td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
+  <?php if(!empty($suppliers)){
+                            foreach($suppliers as $supplier){?>
+                                    <tr>
+                                        <td><?php echo $supplier['user_id'];?></td>
+                                        <td><?php echo $supplier['name'];?></td>
+                                        <td><?php echo $supplier['email'];?></td>
+                                        <td><?php echo $supplier['gender'];?></td>
+                                        <td><?php echo $supplier['telephone'];?></td>
+                                        <td><?php echo $supplier['location'];?></td>
+                                        <td class="d-flex">
+                                            <a href="<?php echo base_url().'index.php/User/edit/'.$supplier['user_id']?>" class="btn btn-primary">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            Edit</a>
+                                      
+                                            <a href="<?php echo base_url().'index.php/User/delete/'.$supplier['user_id']?>" class="btn btn-primary btn-danger ms-2">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            Delete</a>
+                                        </td>
+                                    </tr>
+                                <?php
+                            }
+                    }else{?>
+                    <td colspan="5">No suppliers found</td>
+                    <?php
+                    }
+                    ?>
    
   </tbody>
 </table>
