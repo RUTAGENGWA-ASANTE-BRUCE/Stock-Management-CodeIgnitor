@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
+<?php if (!isset($SESSION['user_data'])){
+        header(base_url().'/User/login');
+    }
+    ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Management - Register User</title>
+    <title>Stock Management - Create product</title>
     <Link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
     <style>
         .loginRegister {
@@ -85,7 +89,7 @@
 
             </path>
         </svg>
-        <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url() .'Stock/createProduct/'.$user['user_id'];?>">
+        <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url() .'Stock/createProduct';?>">
             <div class="form-part">
                 <Label>Product Name</Label>
                 <input required type="text" maxlength="60" name="name" class="form-input" />
@@ -158,7 +162,7 @@
             </div>
            
             <button class="btn btn-primary bg-primary signup">Register Product</button>
-            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'Stock/stockProducts/'.$user['user_id']; ?>">Cancel</a>
+            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'Stock/stockProducts'; ?>">Cancel</a>
         </form>
     </div>
     </div>
