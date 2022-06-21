@@ -34,7 +34,8 @@ class User extends CI_Controller
                 $user = $this->User_model->create($formArray);
                 $this->session->set_flashdata('success', 'User Registered successfully');
                 $data['user'] = $user;
-                redirect(base_url() . "Stock/stockProducts/" . $user['user_id']);
+                redirect(base_url() . "Stock/stockProducts");
+                $this->session->set_userdata($user);
             
 
 
@@ -59,24 +60,21 @@ class User extends CI_Controller
             } else {
                 $data['user'] = $user;
                 $this->session->set_flashdata('success', 'You logged in successfully');
-                redirect(base_url() . "Stock/stockProducts/" . $user['user_id']);
+                $this->session->set_userdata($user);
+                redirect(base_url() . "Stock/stockProducts");
             }
         }
     }
-    function userInfo($user_id)
+    function userInfo()
     {
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
         $data = array();
-        $data['user'] = $user;
+        $data['user'] = $this->session->userdata;
         $this->load->view('user_info', $data);
     }
-    function edit($user_id)
-    {
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
+    function edit()
+    {   $this->load->model('User_model');
         $data = array();
-        $data['user'] = $user;
+        $data['user'] =  $this->session->userdata;
         $this->form_validation->set_rules("name", "Name", "required");
         $this->form_validation->set_rules("email", "Email", "required|valid_email");
         $this->form_validation->set_rules('password', "Password", 'required');
@@ -88,10 +86,12 @@ class User extends CI_Controller
             $formArray['name'] = $this->input->post('name');
             $formArray['email'] = $this->input->post('email');
             $formArray['password'] = hash("SHA512", $this->input->post('password'));
-            $this->User_model->updateUser($user_id, $formArray);
+            $user=$this->User_model->updateUser( $this->session->userdata['user_id'], $formArray);
             $this->session->set_flashdata('success', "Profile updated successfully!");
-            $this->session->set_flashdata('userInfo', $user);
-            redirect(base_url() . "User/userInfo/" . $user_id);
+            $this->session->set_flashdata('userInfo',  $this->session->userdata);
+            $this->session->set_userdata($user);
+            redirect(base_url() . "User/userInfo");
+
         }
     }
 }
