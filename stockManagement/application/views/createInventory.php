@@ -137,7 +137,7 @@
             </div>
            
             <button class="btn btn-primary bg-primary signup">Create Inventory</button>
-            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'Stock/Inventories/'.$user['user_id']; ?>">Cancel</a>
+            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'Stock/Inventories'; ?>">Cancel</a>
         </form>
     </div>
     </div>
