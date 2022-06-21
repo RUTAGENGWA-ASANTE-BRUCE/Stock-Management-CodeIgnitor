@@ -17,7 +17,8 @@
             return $products=$this->db->get('products')->result_array();//Select * from users'
         }
         function delete($product_id){
-            $this->db->where('product_id',$product_id);
+            $this->db->where('
+            product_id',$product_id);
             $this->db->delete('products');
         }
     }
