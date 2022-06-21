@@ -1,28 +1,23 @@
 <?php
 class Stock extends CI_Controller
 {
-    function stockProducts($user_id)
+    function stockProducts()
     {
-        $this->load->model('User_model');
         $this->load->model('Product_model');
         $products = $this->Product_model->all();
-
-        $user = $this->User_model->getUser($user_id);
         $data = array();
-        $data['user'] = $user;
+        $data['user'] = $this->session->userdata;
         $data['products'] = $products;
 
         $this->load->view('productsStock', $data);
     }
-    function createProduct($user_id)
+    function createProduct()
     {
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
         $this->load->model('Supplier_model');
         $this->load->model('Product_model');
         $suppliers = $this->Supplier_model->all();
         $data = array();
-        $data['user'] = $user;
+        $data['user'] = $this->session->userdata;
         $data['suppliers'] = $suppliers;
         $this->load->model('Supplier_model');
         $this->form_validation->set_rules('name', "Name", 'required');
@@ -37,6 +32,7 @@ class Stock extends CI_Controller
             $formArray = array();
             $formArray['name'] = $this->input->post('name');
             $formArray['category'] = $this->input->post('category');
+            $formArray['brand'] = $this->input->post('brand');
             $formArray['price'] = $this->input->post('price');
             $formArray['colors'] = join(",", $this->input->post('color'));
             $supplier = $this->input->post('supplier');
@@ -49,7 +45,6 @@ class Stock extends CI_Controller
                 'allowed_types' => 'gif|jpg|png|jpeg',
                 'upload_path'    => 'public/images'
             ];
-            $config['encrypt_name'] = TRUE;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
             if ($this->upload->do_upload('productPicture')) {
@@ -58,7 +53,7 @@ class Stock extends CI_Controller
 
             $this->Product_model->create($formArray);
             $this->session->set_flashdata('success', 'Product Registered successfully');
-            redirect(base_url() . "Stock/stockProducts/" . $user['user_id']);
+            redirect(base_url() . "Stock/stockProducts");
         }
     }
 
@@ -77,8 +72,7 @@ class Stock extends CI_Controller
         $this->form_validation->set_rules('price', "Price", 'required');
         $this->form_validation->set_rules('supplier', "Supplier", 'required');
         $this->form_validation->set_rules('brand', "Brand", 'required');
-        $user_id = $this->input->post('user_id');
-        $data['user_id'] = $user_id;
+        $data['user_id'] = $this->session->userdata['user_id'];
 
         if ($this->form_validation->run() == false) {
             $this->load->view('editProduct', $data);
@@ -109,7 +103,7 @@ class Stock extends CI_Controller
 
             $this->Product_model->updateProduct($product_id, $formArray);
             $this->session->set_flashdata('success', 'Product Updated successfully');
-            redirect(base_url() . "Stock/stockProducts/" . $this->input->post('user_id'));
+            redirect(base_url() . "Stock/stockProducts");
             $this->session->set_flashdata('productInfo', $product);
         }
     }
@@ -117,30 +111,23 @@ class Stock extends CI_Controller
     function deleteProduct($product_id)
     {
         $this->load->model('Product_model');
-        $user_id = $this->input->post('user_id');
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
         $this->Product_model->delete($product_id);
-        redirect(base_url() . "Stock/stockProducts/" . $user['user_id']);
+        redirect(base_url() . "Stock/stockProducts");
     }
-    function  productSuppliers($user_id)
+    function  productSuppliers()
     {
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
         $data = array();
-        $data['user'] = $user;
         $this->load->model('Supplier_model');
+        $data['user'] = $this->session->userdata;
         $suppliers = $this->Supplier_model->all();
         $data['suppliers'] = $suppliers;
         $this->load->view('productSuppliers', $data);
     }
 
-    function createSupplier($user_id)
+    function createSupplier()
     {
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
         $data = array();
-        $data['user'] = $user;
+        $data['user'] = $this->session->userdata;
         $this->load->model('Supplier_model');
         $this->form_validation->set_rules('name', "Name", 'required');
         $this->form_validation->set_rules('email', "Email", 'required|valid_email');
@@ -160,21 +147,20 @@ class Stock extends CI_Controller
 
             $this->Supplier_model->create($formArray);
             $this->session->set_flashdata('success', 'Supplier Registered successfully');
-            redirect(base_url() . "Stock/productSuppliers/" . $this->input->post('user_id'));
+            redirect(base_url() . "Stock/productSuppliers" );
         }
     }
 
     function editSupplier($supplier_id)
     {
         $data = array();
-        $user_id = $this->input->post('user_id');
-        $data['user_id'] = $user_id;
+        $data['user_id'] = $this->session->userdata['user_id'];
         $this->load->model('Supplier_model');
         $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
+        $user = $this->User_model->getUser($this->session->userdata['user_id']);
         $supplier = $this->Supplier_model->getSupplier($supplier_id);
         $data['supplier'] = $supplier;
-        $data['user'] = $user;
+        $data['user'] = $this->session->userdata;
         $this->form_validation->set_rules('name', "Name", 'required');
         $this->form_validation->set_rules('email', "Email", 'required|valid_email');
         $this->form_validation->set_rules('gender', "Gender", 'required');
@@ -198,22 +184,16 @@ class Stock extends CI_Controller
     }
 
     function deleteSupplier($supplier_id)
-    {
-        $this->load->model('Supplier_model');
-        $user_id = $this->input->post('user_id');
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
+    {   $this->load->model('Supplier_model');
         $this->Supplier_model->delete($supplier_id);
-        redirect(base_url() . "Stock/productSuppliers/" . $user['user_id']);
+        redirect(base_url() . "Stock/productSuppliers");
     }
 
-    function  Inventories($user_id)
+    function  Inventories()
     {
-        $this->load->model('User_model');
         $this->load->model('Inventory_model');
-        $user = $this->User_model->getUser($user_id);
         $data = array();
-        $data['user'] = $user;
+        $data['user'] = $this->session->userdata;
         $this->load->model('Supplier_model');
         $suppliers = $this->Supplier_model->all();
         $inventories = $this->Inventory_model->all();
@@ -222,10 +202,9 @@ class Stock extends CI_Controller
         $this->load->view('stockInventory', $data);
     }
 
-    function createInventory($user_id)
+    function createInventory()
     {
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
+        $user =  $this->session->userdata;
         $data = array();
         $data['user'] = $user;
         $this->load->model('Product_model');
@@ -253,23 +232,18 @@ class Stock extends CI_Controller
             $this->load->model('Inventory_model');
             $this->Inventory_model->create($formArray);
             $this->session->set_flashdata('success', 'Inventory Registered successfully');
-            redirect(base_url() . "Stock/Inventories/" . $user['user_id']);
+            redirect(base_url() . "Stock/Inventories");
         }
     }
 
     function editInventory($inventory_id)
     {
         $data = array();
-        $user_id = $this->input->post('user_id');
-        $data['user_id'] = $user_id;
         $this->load->model('Inventory_model');
         $this->load->model('Product_model');
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
         $products = $this->Product_model->all();
         $inventory = $this->Inventory_model->getInventory($inventory_id);
         $data['inventory'] = $inventory;
-        $data['user'] = $user;
         $data['products'] = $products;
         $this->form_validation->set_rules('product', "Product", 'required');
         $this->form_validation->set_rules('amount', "Amount", 'required');
@@ -293,18 +267,15 @@ class Stock extends CI_Controller
             $this->load->model('Inventory_model');
             $this->Inventory_model->updateInventory($inventory_id, $formArray);
             $this->session->set_flashdata('success', 'Inventory updated successfully');
-            redirect(base_url() . "Stock/Inventories/" . $user['user_id']);
+            redirect(base_url() . "Stock/Inventories");
         }
     }
 
     function deleteInventory($inventory_id)
     {
         $this->load->model('Inventory_model');
-        $user_id = $this->input->post('user_id');
-        $this->load->model('User_model');
-        $user = $this->User_model->getUser($user_id);
         $this->Inventory_model->delete($inventory_id);
-        redirect(base_url() . "Stock/inventories/" . $user['user_id']);
+        redirect(base_url() . "Stock/inventories");
     }
 
     function productsPdf()
