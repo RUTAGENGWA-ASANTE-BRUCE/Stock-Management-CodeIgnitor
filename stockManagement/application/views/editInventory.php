@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
+<?php if (!isset($SESSION['user_data'])){
+        header(base_url().'/User/login');
+    }
+    ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Management - Register User</title>
+    <title>Stock Management - Edit Inventory</title>
     <Link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
     <style>
         .loginRegister {
@@ -86,7 +90,6 @@
             </path>
         </svg>
         <form method="POST" name="createUser" enctype="multipart/form-data" style="height:80%;" class="col-md-12" action="<?php echo base_url() .'Stock/editInventory/'.$inventory['inventory_id'];?>">
-        <input type="hidden" name="user_id" value="<?php echo $user_id;?>">
         
         <div class="form-part d-flex flex-column">
                 <div class="d-flex">
@@ -134,7 +137,7 @@
             </div>
            
             <button class="btn btn-primary bg-primary signup">Update Inventory</button>
-            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'Stock/Inventories/'.$user['user_id']; ?>">Cancel</a>
+            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'Stock/Inventories'; ?>">Cancel</a>
         </form>
     </div>
     </div>
