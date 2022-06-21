@@ -1,11 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php if (!isset($SESSION['user_data'])){
-        header(base_url().'/User/login');
-    }
-    ?>
+  
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,7 +78,7 @@
         </div>
         <div class="mt-2">
             <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-            <a class="btn bg-white  ms-4" href="<?php echo base_url() . 'index.php/User/login'; ?>">
+            <a class="btn bg-white  ms-4" href="<?php echo base_url() . 'index.php/User/logout'; ?>">
 
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 Log out
@@ -97,8 +95,9 @@
                     <i class="fa-solid fa-magnifying-glass fs-5 mt-2 ms-2"></i>
                     <input style="border:none;outline:none;flex:1;" type="text" name="search" />
                 </div>
-                <div class="col-2 text-right"><a href="<?php echo base_url() . 'Stock/productsPdf';?>" class="btn btn-secondary">View Poducts Pdf
-                <i class="fa-solid fa-file-pdf"></i>
+                <div class="col-2 text-right"><a href="<?php echo base_url() . 'Stock/productsPdf';?>" class="btn btn-secondary">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    View Poducts Pdf
                     </a></div>
         <div class="d-flex">
             <img src="<?php echo base_url().'public/images/'.$user['profilePicture'];?>" style="width: 40px;height: 40px;object-fit: cover;border-radius:50%;"/>
