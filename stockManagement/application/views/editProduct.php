@@ -158,7 +158,7 @@
             </div>
            
             <button class="btn btn-primary bg-primary signup">Update Product</button>
-            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'Stock/stockProducts/'.$user_id; ?>">Cancel</a>
+            <a class="signin btn bg-dark text-white" href="<?php echo base_url() .'Stock/stockProducts'; ?>">Cancel</a>
         </form>
     </div>
     </div>
