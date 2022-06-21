@@ -15,11 +15,13 @@ class User extends CI_Controller
         } else {
             $formArray = array();
             $formArray['name'] = $this->input->post('name');
+
             $formArray['email'] = $this->input->post('email');
             $formArray['gender'] = $this->input->post('gender');
             $formArray['nationality'] = $this->input->post('nationality');
             $formArray['password'] = hash("SHA512", $this->input->post('password'));
             $config =[
+                'file_name' =>time(),
                 'allowed_types' => 'gif|jpg|png|jpeg',
                 'upload_path'    => 'public/images'
             ];
