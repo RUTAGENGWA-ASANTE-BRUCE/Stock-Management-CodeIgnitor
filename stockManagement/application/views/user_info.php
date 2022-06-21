@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+<?php if (!isset($SESSION['user_data'])){
+        header(base_url().'/User/login');
+    }
+    ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +41,7 @@
 
             <div class="mt-4 ">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white float-start ms-4" href="<?php echo base_url().'Stock/stockProducts/'.$user['user_id'];?>">
+                <a class="btn bg-white float-start ms-4" href="<?php echo base_url().'Stock/stockProducts';?>">
 
                     <i class="fa-solid fa-truck-ramp-box"></i>
                     Products
@@ -46,7 +50,7 @@
          
             <div class="">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white  ms-4" href="<?php echo base_url().'Stock/productSuppliers/'.$user['user_id'];?>">
+                <a class="btn bg-white  ms-4" href="<?php echo base_url().'Stock/productSuppliers';?>">
 
                     <i class="fa-solid fa-hand-holding-dollar"></i>
                     Suppliers
@@ -54,7 +58,7 @@
             </div>
             <div class="mt-2">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url().'Stock/inventories/'.$user['user_id'];?>">
+                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url().'Stock/inventories';?>">
                     
                     <i class="fa-solid fa-truck-field"></i>
                     Inventory
@@ -107,7 +111,7 @@
                     <div class="col-10">
                         <h3>User Profile</h3>
                     </div>
-                    <div class="col-2 text-right"> <a href="<?php echo base_url().'User/edit/'.$user['user_id']?>" class="btn btn-primary">
+                    <div class="col-2 text-right"> <a href="<?php echo base_url().'User/edit'?>" class="btn btn-primary">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             Edit</a></div>
                 </div>
