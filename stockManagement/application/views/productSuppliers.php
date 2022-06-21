@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+<?php if (!isset($SESSION['user_data'])){
+        header(base_url().'/User/login');
+    }
+    ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +42,7 @@
 
             <div class="mt-4 ">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white float-start ms-4" href="<?php echo base_url() . 'Stock/stockProducts/' . $user['user_id']; ?>">
+                <a class="btn bg-white float-start ms-4" href="<?php echo base_url() . 'Stock/stockProducts'  ; ?>">
 
                     <i class="fa-solid fa-truck-ramp-box"></i>
                     Products
@@ -55,7 +59,7 @@
             </div>
             <div class="mt-2">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url() . 'Stock/inventories/' . $user['user_id']; ?>">
+                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url() . 'Stock/inventories'; ?>">
 
                     <i class="fa-solid fa-truck-field"></i>
                     Inventory
@@ -63,7 +67,7 @@
             </div>
             <div class="mt-2">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white  ms-4" href="<?php echo base_url() . 'User/userInfo/' . $user['user_id'] ?>">
+                <a class="btn bg-white  ms-4" href="<?php echo base_url() . 'User/userInfo' ?>">
 
                     <i class="fa-solid fa-user"></i>
                     User Info
@@ -89,6 +93,10 @@
                 <i class="fa-solid fa-magnifying-glass fs-5 mt-2 ms-2"></i>
                 <input style="border:none;outline:none;flex:1;" type="text" name="search" />
             </div>
+            <div class="col-2 text-right"><a href="<?php echo base_url() . 'Stock/suppliersPdf';?>" class="btn btn-secondary">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    View Suppliers Pdf
+                    </a></div>
             <div class="d-flex">
                 <img src="<?php echo base_url() . 'public/images/' . $user['profilePicture']; ?>" style="width: 40px;height: 40px;object-fit: cover;border-radius:50%;" />
                 <div style="display:flex;flex-direction: column;margin-left: 5px;">
@@ -119,7 +127,7 @@
 
             <div class="d-flex mt-4 justify-content-between">
                 <h3>Products Suppliers</h3>
-                <div class="col-2 text-right"><a href="<?php echo base_url() . 'Stock/createSupplier/' . $user['user_id']; ?>" class="btn btn-primary">Add supplier
+                <div class="col-2 text-right"><a href="<?php echo base_url() . 'Stock/createSupplier'; ?>" class="btn btn-primary">Add supplier
                         <i class="fa-solid fa-plus"></i>
                     </a></div>
                 
