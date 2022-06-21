@@ -127,7 +127,7 @@
 
             <div class="d-flex justify-content-between mt-4">
                 <h3>Stock Inventories</h3>
-                <div class="col-2 text-right"><a href="<?php echo base_url() . 'Stock/createInventory/' . $user['user_id']; ?>" class="btn btn-primary">Add inventory
+                <div class="col-2 text-right"><a href="<?php echo base_url() . 'Stock/createInventory'; ?>" class="btn btn-primary">Add inventory
                         <i class="fa-solid fa-plus"></i>
                     </a></div>
                 
