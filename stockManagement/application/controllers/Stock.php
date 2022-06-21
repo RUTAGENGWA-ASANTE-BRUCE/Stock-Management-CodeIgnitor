@@ -2,7 +2,9 @@
 class Stock extends CI_Controller
 {
     function stockProducts()
-    {
+    {    if (!$this->session->has_userdata('user_id')){
+        redirect(base_url().'User/login');
+    }
         $this->load->model('Product_model');
         $products = $this->Product_model->all();
         $data = array();
@@ -12,7 +14,9 @@ class Stock extends CI_Controller
         $this->load->view('productsStock', $data);
     }
     function createProduct()
-    {
+    {    if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         $this->load->model('Supplier_model');
         $this->load->model('Product_model');
         $suppliers = $this->Supplier_model->all();
@@ -59,6 +63,9 @@ class Stock extends CI_Controller
 
     function editProduct($product_id)
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         $this->load->model('Product_model');
         $this->load->model('Supplier_model');
         $product = $this->Product_model->getProduct($product_id);
@@ -110,12 +117,18 @@ class Stock extends CI_Controller
 
     function deleteProduct($product_id)
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         $this->load->model('Product_model');
         $this->Product_model->delete($product_id);
         redirect(base_url() . "Stock/stockProducts");
     }
     function  productSuppliers()
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         $data = array();
         $this->load->model('Supplier_model');
         $data['user'] = $this->session->userdata;
@@ -126,6 +139,9 @@ class Stock extends CI_Controller
 
     function createSupplier()
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         $data = array();
         $data['user'] = $this->session->userdata;
         $this->load->model('Supplier_model');
@@ -153,6 +169,9 @@ class Stock extends CI_Controller
 
     function editSupplier($supplier_id)
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         $data = array();
         $data['user_id'] = $this->session->userdata['user_id'];
         $this->load->model('Supplier_model');
@@ -184,13 +203,19 @@ class Stock extends CI_Controller
     }
 
     function deleteSupplier($supplier_id)
-    {   $this->load->model('Supplier_model');
+    {   if (!$this->session->has_userdata('user_id')){
+        redirect(base_url().'User/login');
+    }
+         $this->load->model('Supplier_model');
         $this->Supplier_model->delete($supplier_id);
         redirect(base_url() . "Stock/productSuppliers");
     }
 
     function  Inventories()
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         $this->load->model('Inventory_model');
         $data = array();
         $data['user'] = $this->session->userdata;
@@ -204,6 +229,9 @@ class Stock extends CI_Controller
 
     function createInventory()
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         $user =  $this->session->userdata;
         $data = array();
         $data['user'] = $user;
@@ -238,6 +266,9 @@ class Stock extends CI_Controller
 
     function editInventory($inventory_id)
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         $data = array();
         $this->load->model('Inventory_model');
         $this->load->model('Product_model');
@@ -273,6 +304,9 @@ class Stock extends CI_Controller
 
     function deleteInventory($inventory_id)
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         $this->load->model('Inventory_model');
         $this->Inventory_model->delete($inventory_id);
         redirect(base_url() . "Stock/inventories");
@@ -280,6 +314,9 @@ class Stock extends CI_Controller
 
     function productsPdf()
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         require('fpdf/fpdf.php');
         $pdf = new FPDF();
         $pdf->AddPage();
@@ -316,6 +353,9 @@ class Stock extends CI_Controller
 
     function suppliersPdf()
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         require('fpdf/fpdf.php');
         $pdf = new FPDF();
         $pdf->AddPage();
@@ -349,6 +389,9 @@ class Stock extends CI_Controller
 
     function inventoriesPdf()
     {
+        if (!$this->session->has_userdata('user_id')){
+            redirect(base_url().'User/login');
+        }
         require('fpdf/fpdf.php');
         $pdf = new FPDF();
         $pdf->AddPage();
