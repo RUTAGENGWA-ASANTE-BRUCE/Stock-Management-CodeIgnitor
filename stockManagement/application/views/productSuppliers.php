@@ -76,7 +76,7 @@
         </div>
         <div class="mt-2">
             <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-            <a class="btn bg-white  ms-4" href="<?php echo base_url() . 'User/login'; ?>">
+            <a class="btn bg-white  ms-4" href="<?php echo base_url() . 'User/logout'; ?>">
 
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 Log out
