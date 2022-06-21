@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
+<?php if (!isset($SESSION['user_data'])){
+        header(base_url().'/User/login');
+    }
+    ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Management - Register User</title>
+    <title>Stock Management - Edit Supplier</title>
     <Link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
     <style>
         .loginRegister{
@@ -85,7 +89,6 @@
                 <input required type="text"  maxlength="60" name="name" value="<?php echo $supplier['name'];?>" class="form-input" />
                 
             </div>
-            <input type="hidden" name="user_id" value="<?php echo $user_id;?>">
             <div class="form-part">
                 <Label>Email</Label>
                 <input required type="email"  name="email" class="form-input" value="<?php echo $supplier['email'];?>"/>
@@ -121,7 +124,7 @@
 
             </div>
             <button class="btn btn-primary bg-primary signup">Update Supplier</button>
-            <a class="signin btn bg-dark text-white" href="<?php echo base_url().'Stock/productSuppliers/'.$user_id ; ?>">Cancel</a>
+            <a class="signin btn bg-dark text-white" href="<?php echo base_url().'Stock/productSuppliers'; ?>">Cancel</a>
         </form>
     </div>
     </div>
