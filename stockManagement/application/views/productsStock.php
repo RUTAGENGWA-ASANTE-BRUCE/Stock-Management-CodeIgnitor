@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+    <?php if (!isset($SESSION['user_data'])){
+        header(base_url().'/User/login');
+    }
+    ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +41,7 @@
 
 <body>
     <div class="sideBar " class="">
-        <h4 class="text-primary w-50 mt-2 mx-auto ">Bruce Store</h4>
+        <h4 class="text-primary w-50 mt-2 mx-auto ">Bruce Store </h4>
         <div class="border-bottom d-flex flex-column pb-3">
 
             <div class="mt-4 ">
@@ -51,7 +55,7 @@
 
             <div class="">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white  ms-4" href="<?php echo base_url() . 'Stock/productSuppliers/' . $user['user_id']; ?>">
+                <a class="btn bg-white  ms-4" href="<?php echo base_url() . 'Stock/productSuppliers' ; ?>">
 
                     <i class="fa-solid fa-hand-holding-dollar"></i>
                     Suppliers
@@ -59,7 +63,7 @@
             </div>
             <div class="mt-2">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url() . 'Stock/inventories/' . $user['user_id']; ?>">
+                <a class="btn  float-start ms-4 bg-white" href="<?php echo base_url() . 'Stock/inventories' ; ?>">
 
                     <i class="fa-solid fa-truck-field"></i>
                     Inventory
@@ -67,7 +71,7 @@
             </div>
             <div class="mt-2">
                 <div style="width:7px;height:40px; " class="rounded-end float-start bg-white"></div>
-                <a class="btn bg-white  ms-4" href="<?php echo base_url() . 'User/userInfo/' . $user['user_id'] ?>">
+                <a class="btn bg-white  ms-4" href="<?php echo base_url() . 'User/userInfo' ; ?>">
 
                     <i class="fa-solid fa-user"></i>
                     User Info
@@ -93,6 +97,9 @@
                     <i class="fa-solid fa-magnifying-glass fs-5 mt-2 ms-2"></i>
                     <input style="border:none;outline:none;flex:1;" type="text" name="search" />
                 </div>
+                <div class="col-2 text-right"><a href="<?php echo base_url() . 'Stock/productsPdf';?>" class="btn btn-secondary">View Poducts Pdf
+                <i class="fa-solid fa-file-pdf"></i>
+                    </a></div>
         <div class="d-flex">
             <img src="<?php echo base_url().'public/images/'.$user['profilePicture'];?>" style="width: 40px;height: 40px;object-fit: cover;border-radius:50%;"/>
             <div style="display:flex;flex-direction: column;margin-left: 5px;" >
@@ -124,7 +131,7 @@
 
             <div class="d-flex justify-content-between mt-4 w-100">
                 <h3>Products Stock</h3>
-                <div class="col-2 text-right"><a href="<?php echo base_url() . 'Stock/createProduct/' . $user['user_id']; ?>" class="btn btn-primary">Add product
+                <div class="col-2 text-right"><a href="<?php echo base_url() . 'Stock/createProduct' ?>" class="btn btn-primary">Add product
                         <i class="fa-solid fa-plus"></i>
                     </a></div>
 
@@ -173,22 +180,18 @@
                                 <td>
                                     <div class="d-flex">
                                         
-                                        <form action="<?php echo base_url() . 'Stock/editProduct/' . $product['product_id'] ?>" method="post">
-                                            <button class="btn btn-primary">
-                                                
-
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                                Edit
+                                        <button class="btn btn-primary">
+                                                <a class="text-white" href="<?php echo base_url() . 'Stock/editProduct/' . $product['product_id'] ?>">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                    Edit
+                                                </a>
                                             </button>
-                                            <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
-                                        </form>
-                                        <form action="<?php echo base_url() . 'Stock/deleteProduct/' . $product['product_id'] ?>" method="post">
-                                            <button class="btn btn-danger ms-2">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                                Delete
+                                        <button class="btn btn-danger ms-2">
+                                        <a class="text-white"  href="<?php echo base_url() . 'Stock/deleteProduct/' . $product['product_id'] ?>">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                            Delete
                                             </button>
-                                            <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
-                                        </form>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
